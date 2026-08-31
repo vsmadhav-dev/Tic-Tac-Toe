@@ -1,7 +1,7 @@
 let boxes = document.querySelectorAll('.box');
 let resetBtn =  document.querySelector('.reset');
 let turnO = true;
-let newGameBtn = document.querySelector('restart');
+let newGameBtn = document.querySelector('.restart');
 let msgContainer = document.querySelector('.msg-container');
 let msg = document.querySelector('.msg');
 const winPatterns = [
@@ -28,6 +28,11 @@ boxes.forEach((box) => {
         checkWinner();
     });
 })
+const disableBoxes = () =>{
+    for (let box of boxes) {
+        box.disabled = true;
+    }
+}
 const showWinner = (winner) => {
     msg.innerText = 'Congratulations , Winner is ' + winner;
     msgContainer.classList.remove('hide')
@@ -42,6 +47,7 @@ function checkWinner() {
        if(pos1Value != '' && pos2Value != '' && pos3Value != ''){
            if(pos1Value === pos2Value && pos2Value === pos3Value ){
               console.log('winner' , pos1Value );
+               disableBoxes()
               showWinner(pos1Value);
               break;
 
@@ -50,3 +56,16 @@ function checkWinner() {
 
     }
 }
+const resetGame = () => {
+turnO = true;
+enableBoxes();
+msgContainer.classList.add('hide')
+}
+const enableBoxes = () =>{
+    for (let box of boxes) {
+        box.disabled = false;
+        box.innerText = '';
+    }
+}
+newGameBtn.addEventListener('click', resetGame);
+resetBtn.addEventListener('click', resetGame);
