@@ -5,6 +5,9 @@ let newGameBtn = document.querySelector('.restart');
 let msgContainer = document.querySelector('.msg-container');
 let msg = document.querySelector('.msg');
 let count = 0;
+const x = document.querySelector('.black')
+const o = document.querySelector('.red')
+o.classList.add('active')
 const winPatterns = [
     [0 , 1 ,2],
     [0, 3, 6],
@@ -21,10 +24,15 @@ boxes.forEach((box) => {
         console.log('clicked');
         if(turnO) {
             box.innerText = 'O';
+            x.classList.add('active');
+            o.classList.remove('active');
             turnO = false;
+
         }else{
             box.innerText= 'X';
             turnO = true;
+            x.classList.remove('active');
+            o.classList.add('active');
             box.style.color = '#000'
         }
         box.disabled = true;

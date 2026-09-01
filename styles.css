@@ -69,3 +69,26 @@ body{
 .hide{
     display: none;
 }
+.turn-container{
+    height: 5vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 5vmin;
+    gap: 7.5vmin;
+    font-size: 5vmin;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.black{
+    color: black;
+}
+.red{
+    color: #b0413e;
+}
+.active{
+    background-color: greenyellow;
+    border-radius: 2vmin;
+    width: 18vmin;
+}
