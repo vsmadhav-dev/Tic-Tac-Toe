@@ -4,6 +4,7 @@ let turnO = true;
 let newGameBtn = document.querySelector('.restart');
 let msgContainer = document.querySelector('.msg-container');
 let msg = document.querySelector('.msg');
+let count = 0;
 const winPatterns = [
     [0 , 1 ,2],
     [0, 3, 6],
@@ -16,6 +17,7 @@ const winPatterns = [
 ];
 boxes.forEach((box) => {
     box.addEventListener('click', () => {
+        count++;
         console.log('clicked');
         if(turnO) {
             box.innerText = 'O';
@@ -25,8 +27,15 @@ boxes.forEach((box) => {
             turnO = true;
         }
         box.disabled = true;
-        checkWinner();
+
+       let isWinner = checkWinner();
+        if(count === 9 && !isWinner){
+            msg.innerText = 'Tie';
+            msgContainer.classList.remove('hide');
+        }
+
     });
+
 })
 const disableBoxes = () =>{
     for (let box of boxes) {
@@ -49,17 +58,19 @@ function checkWinner() {
               console.log('winner' , pos1Value );
                disableBoxes()
               showWinner(pos1Value);
-              break;
+              return true;
 
            }
        }
 
     }
+    return false;
 }
 const resetGame = () => {
 turnO = true;
 enableBoxes();
 msgContainer.classList.add('hide')
+    count = 0;
 }
 const enableBoxes = () =>{
     for (let box of boxes) {
