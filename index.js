@@ -27,6 +27,7 @@ boxes.forEach((box) => {
             x.classList.add('active');
             o.classList.remove('active');
             turnO = false;
+            box.style.color = '#b0413e'
 
         }else{
             box.innerText= 'X';
@@ -80,11 +81,14 @@ turnO = true;
 enableBoxes();
 msgContainer.classList.add('hide')
     count = 0;
+o.classList.add('active');
+x.classList.remove('active');
 }
 const enableBoxes = () =>{
     for (let box of boxes) {
         box.disabled = false;
         box.innerText = '';
+        box.style.color = ' ';
     }
 }
 newGameBtn.addEventListener('click', resetGame);
