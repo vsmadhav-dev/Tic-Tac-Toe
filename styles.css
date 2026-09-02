@@ -92,3 +92,16 @@ body{
     border-radius: 2vmin;
     width: 18vmin;
 }
+.note {
+    background-color: rgba(220, 20, 60, 0.15);
+    color: #ffffc7;
+    border: 1.5px solid crimson;
+    border-radius: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    max-width: 80%;
+    margin: 0 auto 2.5rem auto;
+    padding: 0.6rem 1.2rem;
+    letter-spacing: 0.5px;
+}
